@@ -1,0 +1,42 @@
+{
+  "$id": "wsdl-description.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WSDL Description",
+  "description": "Schema describing the top-level description element of a WSDL 2.0 document as defined by the W3C specification. The description is the root element that contains interfaces, bindings, services, and type definitions for a web service.",
+  "type": "object",
+  "required": [
+    "targetNamespace"
+  ],
+  "properties": {
+    "targetNamespace": {
+      "type": "string",
+      "format": "uri",
+      "description": "The namespace URI that identifies the WSDL target namespace for this description."
+    },
+    "types": {
+      "$ref": "wsdl-types.json"
+    },
+    "interface": {
+      "type": "array",
+      "items": {
+        "$ref": "wsdl-interface.json"
+      },
+      "description": "A list of interface definitions describing abstract web service operations."
+    },
+    "binding": {
+      "type": "array",
+      "items": {
+        "$ref": "wsdl-binding.json"
+      },
+      "description": "A list of binding definitions specifying concrete message formats and protocols."
+    },
+    "service": {
+      "type": "array",
+      "items": {
+        "$ref": "wsdl-service.json"
+      },
+      "description": "A list of service definitions grouping endpoints for a web service."
+    }
+  },
+  "additionalProperties": false
+}

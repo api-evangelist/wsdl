@@ -1,0 +1,116 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "wsdl": "http://www.w3.org/ns/wsdl#",
+    "wsdlx": "http://www.w3.org/ns/wsdl-extensions#",
+    "wsoap": "http://www.w3.org/ns/wsdl/soap#",
+    "whttp": "http://www.w3.org/ns/wsdl/http#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "Description": {
+      "@id": "wsdl:Description",
+      "@type": "@id",
+      "rdfs:comment": "The root element of a WSDL 2.0 document containing interfaces, bindings, and services."
+    },
+    "Interface": {
+      "@id": "wsdl:Interface",
+      "@type": "@id",
+      "rdfs:comment": "An abstract definition of operations and message exchange patterns for a web service."
+    },
+    "InterfaceOperation": {
+      "@id": "wsdl:InterfaceOperation",
+      "@type": "@id",
+      "rdfs:comment": "An abstract action supported by a web service, defining input, output, and fault messages."
+    },
+    "InterfaceFault": {
+      "@id": "wsdl:InterfaceFault",
+      "@type": "@id",
+      "rdfs:comment": "A declared fault that may be referenced by operations to indicate error conditions."
+    },
+    "Binding": {
+      "@id": "wsdl:Binding",
+      "@type": "@id",
+      "rdfs:comment": "A concrete specification of message format and transmission protocol for an interface."
+    },
+    "BindingOperation": {
+      "@id": "wsdl:BindingOperation",
+      "@type": "@id",
+      "rdfs:comment": "Protocol-specific details for an interface operation within a binding."
+    },
+    "BindingFault": {
+      "@id": "wsdl:BindingFault",
+      "@type": "@id",
+      "rdfs:comment": "Protocol-specific details for an interface fault within a binding."
+    },
+    "Service": {
+      "@id": "wsdl:Service",
+      "@type": "@id",
+      "rdfs:comment": "A collection of endpoints implementing a common interface."
+    },
+    "Endpoint": {
+      "@id": "wsdl:Endpoint",
+      "@type": "@id",
+      "rdfs:comment": "A network address associated with a binding where a service can be accessed."
+    },
+    "targetNamespace": {
+      "@id": "wsdl:targetNamespace",
+      "@type": "@id",
+      "rdfs:comment": "The namespace URI identifying the WSDL target namespace."
+    },
+    "interfaceName": {
+      "@id": "wsdl:interfaceName",
+      "rdfs:comment": "The local name of an interface definition."
+    },
+    "operationName": {
+      "@id": "wsdl:operationName",
+      "rdfs:comment": "The local name of an operation definition."
+    },
+    "messageExchangePattern": {
+      "@id": "wsdl:messageExchangePattern",
+      "@type": "@id",
+      "rdfs:comment": "A URI identifying the message exchange pattern used by an operation."
+    },
+    "bindingType": {
+      "@id": "wsdl:bindingType",
+      "@type": "@id",
+      "rdfs:comment": "A URI identifying the type of binding (e.g., SOAP, HTTP)."
+    },
+    "address": {
+      "@id": "wsdl:address",
+      "@type": "@id",
+      "rdfs:comment": "The network address URI where a web service endpoint can be reached."
+    },
+    "safe": {
+      "@id": "wsdlx:safe",
+      "@type": "xsd:boolean",
+      "rdfs:comment": "Indicates whether invoking an operation is semantically safe with no side effects."
+    },
+    "soapAction": {
+      "@id": "wsoap:action",
+      "@type": "@id",
+      "rdfs:comment": "The SOAP action URI for a binding operation."
+    },
+    "soapMep": {
+      "@id": "wsoap:mep",
+      "@type": "@id",
+      "rdfs:comment": "The SOAP message exchange pattern URI for a binding operation."
+    },
+    "httpMethod": {
+      "@id": "whttp:method",
+      "rdfs:comment": "The HTTP method used for an HTTP binding operation."
+    },
+    "httpLocation": {
+      "@id": "whttp:location",
+      "rdfs:comment": "The HTTP location template for an HTTP binding operation."
+    },
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "version": "schema:version",
+    "dateCreated": "schema:dateCreated",
+    "dateModified": "schema:dateModified"
+  }
+}

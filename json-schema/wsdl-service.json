@@ -1,0 +1,30 @@
+{
+  "$id": "wsdl-service.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WSDL Service",
+  "description": "Schema describing a service element in a WSDL 2.0 document. A service groups a set of endpoints that implement a common interface, providing the concrete network addresses where the web service is available.",
+  "type": "object",
+  "required": [
+    "name",
+    "interface",
+    "endpoint"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The local name of the service, unique within the WSDL target namespace."
+    },
+    "interface": {
+      "type": "string",
+      "description": "A qualified name referencing the interface that this service implements."
+    },
+    "endpoint": {
+      "type": "array",
+      "items": {
+        "$ref": "wsdl-endpoint.json"
+      },
+      "description": "A list of endpoints where this service can be accessed."
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,77 @@
+{
+  "$id": "wsdl-binding.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WSDL Binding",
+  "description": "Schema describing a binding element in a WSDL 2.0 document. A binding specifies concrete message format and transmission protocol details for operations defined by an interface.",
+  "type": "object",
+  "required": [
+    "name",
+    "type"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The local name of the binding, unique within the WSDL target namespace."
+    },
+    "interface": {
+      "type": "string",
+      "description": "A qualified name referencing the interface to which this binding applies."
+    },
+    "type": {
+      "type": "string",
+      "format": "uri",
+      "description": "A URI identifying the binding type (e.g., http://www.w3.org/ns/wsdl/soap for SOAP binding)."
+    },
+    "operation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ref"],
+        "properties": {
+          "ref": {
+            "type": "string",
+            "description": "A qualified name referencing the interface operation this binding operation corresponds to."
+          },
+          "soapAction": {
+            "type": "string",
+            "format": "uri",
+            "description": "The SOAP action URI for this operation when using a SOAP binding."
+          },
+          "soapMep": {
+            "type": "string",
+            "format": "uri",
+            "description": "The SOAP message exchange pattern URI for this operation."
+          },
+          "httpMethod": {
+            "type": "string",
+            "description": "The HTTP method used for this operation when using an HTTP binding."
+          },
+          "httpLocation": {
+            "type": "string",
+            "description": "The HTTP location template for this operation when using an HTTP binding."
+          }
+        }
+      },
+      "description": "A list of binding operation definitions mapping interface operations to concrete protocol details."
+    },
+    "fault": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ref"],
+        "properties": {
+          "ref": {
+            "type": "string",
+            "description": "A qualified name referencing the interface fault this binding fault corresponds to."
+          },
+          "soapCode": {
+            "type": "string",
+            "description": "The SOAP fault code for this binding fault."
+          }
+        }
+      },
+      "description": "A list of binding fault definitions mapping interface faults to concrete protocol details."
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,11 +1,43 @@
 name: WSDL
-description: WSDL is a technology or concept used in computing and information technology
-  to address specific technical challenges. It provides capabilities that help practitioners
-  build, manage, or improve systems and processes in their domain.
-url: null
+description: WSDL (Web Services Description Language) is a W3C standard XML format
+  for describing web service interfaces. It defines services as collections of network
+  endpoints (ports) that exchange messages, specifying the abstract operations, message
+  formats, and protocol bindings needed to interact with a web service.
+url: https://www.w3.org/TR/wsdl20/
 tags:
 - WSDL
+- XML
+- Web Services
+- W3C
+- Service Description
 created: '2025'
 modified: '2025'
 apis: []
-common: []
+common:
+- type: json-schema
+  title: WSDL Description
+  url: json-schema/wsdl-description.json
+- type: json-schema
+  title: WSDL Types
+  url: json-schema/wsdl-types.json
+- type: json-schema
+  title: WSDL Interface
+  url: json-schema/wsdl-interface.json
+- type: json-schema
+  title: WSDL Operation
+  url: json-schema/wsdl-operation.json
+- type: json-schema
+  title: WSDL Interface Fault
+  url: json-schema/wsdl-interface-fault.json
+- type: json-schema
+  title: WSDL Binding
+  url: json-schema/wsdl-binding.json
+- type: json-schema
+  title: WSDL Service
+  url: json-schema/wsdl-service.json
+- type: json-schema
+  title: WSDL Endpoint
+  url: json-schema/wsdl-endpoint.json
+- type: json-ld-context
+  title: WSDL JSON-LD Context
+  url: json-ld/wsdl-context.jsonld

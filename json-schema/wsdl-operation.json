@@ -1,0 +1,97 @@
+{
+  "$id": "wsdl-operation.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WSDL Operation",
+  "description": "Schema describing an operation element within a WSDL 2.0 interface. An operation defines an abstract action the web service supports, including the message exchange pattern and the input, output, and fault messages.",
+  "type": "object",
+  "required": [
+    "name",
+    "pattern"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The local name of the operation, unique within its parent interface."
+    },
+    "pattern": {
+      "type": "string",
+      "format": "uri",
+      "description": "A URI identifying the message exchange pattern (e.g., in-out, in-only, robust-in-only)."
+    },
+    "style": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "URIs identifying the operation style, overriding the interface default."
+    },
+    "safe": {
+      "type": "boolean",
+      "description": "Indicates whether invoking this operation is semantically safe and has no side effects."
+    },
+    "input": {
+      "type": "object",
+      "properties": {
+        "messageLabel": {
+          "type": "string",
+          "description": "A label identifying this message within the message exchange pattern."
+        },
+        "element": {
+          "type": "string",
+          "description": "A qualified name referencing the element declaration for the input message content."
+        }
+      },
+      "description": "The input message for this operation."
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "messageLabel": {
+          "type": "string",
+          "description": "A label identifying this message within the message exchange pattern."
+        },
+        "element": {
+          "type": "string",
+          "description": "A qualified name referencing the element declaration for the output message content."
+        }
+      },
+      "description": "The output message for this operation."
+    },
+    "infault": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "type": "string",
+            "description": "A qualified name referencing an interface fault declaration."
+          },
+          "messageLabel": {
+            "type": "string",
+            "description": "A label identifying this fault within the message exchange pattern."
+          }
+        }
+      },
+      "description": "A list of faults that may occur during the input phase of the operation."
+    },
+    "outfault": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "type": "string",
+            "description": "A qualified name referencing an interface fault declaration."
+          },
+          "messageLabel": {
+            "type": "string",
+            "description": "A label identifying this fault within the message exchange pattern."
+          }
+        }
+      },
+      "description": "A list of faults that may occur during the output phase of the operation."
+    }
+  },
+  "additionalProperties": false
+}

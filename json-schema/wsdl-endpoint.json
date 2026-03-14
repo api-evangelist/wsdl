@@ -1,0 +1,27 @@
+{
+  "$id": "wsdl-endpoint.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WSDL Endpoint",
+  "description": "Schema describing an endpoint element within a WSDL 2.0 service. An endpoint associates a network address with a specific binding, defining where and how a web service can be accessed.",
+  "type": "object",
+  "required": [
+    "name",
+    "binding"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The local name of the endpoint, unique within its parent service."
+    },
+    "binding": {
+      "type": "string",
+      "description": "A qualified name referencing the binding used by this endpoint."
+    },
+    "address": {
+      "type": "string",
+      "format": "uri",
+      "description": "The network address (URI) where this endpoint can be reached."
+    }
+  },
+  "additionalProperties": false
+}

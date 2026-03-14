@@ -1,0 +1,22 @@
+{
+  "$id": "wsdl-interface-fault.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WSDL Interface Fault",
+  "description": "Schema describing a fault element within a WSDL 2.0 interface. An interface fault declares a fault that may be referenced by operations within the interface to indicate error conditions.",
+  "type": "object",
+  "required": [
+    "name",
+    "element"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The local name of the fault, unique within its parent interface."
+    },
+    "element": {
+      "type": "string",
+      "description": "A qualified name referencing the element declaration for the fault message content."
+    }
+  },
+  "additionalProperties": false
+}

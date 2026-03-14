@@ -1,0 +1,47 @@
+{
+  "$id": "wsdl-interface.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WSDL Interface",
+  "description": "Schema describing an interface element in a WSDL 2.0 document. An interface defines a set of abstract operations and the abstract messages exchanged by each operation, independent of any particular binding or transport protocol.",
+  "type": "object",
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The local name of the interface, unique within the WSDL target namespace."
+    },
+    "extends": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "A list of qualified names of interfaces that this interface extends."
+    },
+    "styleDefault": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "Default operation style URIs applied to operations within this interface."
+    },
+    "fault": {
+      "type": "array",
+      "items": {
+        "$ref": "wsdl-interface-fault.json"
+      },
+      "description": "A list of interface fault declarations."
+    },
+    "operation": {
+      "type": "array",
+      "items": {
+        "$ref": "wsdl-operation.json"
+      },
+      "description": "A list of abstract operation definitions within this interface."
+    }
+  },
+  "additionalProperties": false
+}
