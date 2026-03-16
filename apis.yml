@@ -1,3 +1,4 @@
+aid: wsdl
 name: WSDL
 description: WSDL (Web Services Description Language) is a W3C standard XML format
   for describing web service interfaces. It defines services as collections of network
@@ -5,13 +6,14 @@ description: WSDL (Web Services Description Language) is a W3C standard XML form
   formats, and protocol bindings needed to interact with a web service.
 url: https://www.w3.org/TR/wsdl20/
 tags:
-- WSDL
-- XML
-- Web Services
-- W3C
-- Service Description
+  - WSDL
+  - XML
+  - Web Services
+  - W3C
+  - Service Description
 created: '2025'
-modified: '2025'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 apis: []
 common:
 - type: json-schema
@@ -41,3 +43,6 @@ common:
 - type: json-ld-context
   title: WSDL JSON-LD Context
   url: json-ld/wsdl-context.jsonld
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
