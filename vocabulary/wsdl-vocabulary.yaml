@@ -1,0 +1,342 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: WSDL
+  description: >-
+    Vocabulary for the Web Services Description Language (WSDL) 2.0 W3C standard,
+    covering the core component model, XML elements, message exchange patterns,
+    protocol bindings, and related web service concepts.
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+operational:
+  apis: []
+
+  resources:
+    - name: description
+      description: Root element of a WSDL 2.0 document
+      schemas:
+        - wsdl-description
+      actions:
+        - define
+        - validate
+        - parse
+
+    - name: interface
+      description: Abstract definition of web service operations
+      schemas:
+        - wsdl-interface
+      actions:
+        - define
+        - extend
+        - implement
+
+    - name: operation
+      description: Abstract action supported by a web service
+      schemas:
+        - wsdl-operation
+      actions:
+        - invoke
+        - define
+        - bind
+
+    - name: interface-fault
+      description: Declared fault condition for a web service operation
+      schemas:
+        - wsdl-interface-fault
+      actions:
+        - declare
+        - raise
+        - handle
+
+    - name: binding
+      description: Concrete protocol binding for a service interface
+      schemas:
+        - wsdl-binding
+      actions:
+        - define
+        - apply
+        - configure
+
+    - name: service
+      description: Collection of network endpoints sharing a common interface
+      schemas:
+        - wsdl-service
+      actions:
+        - define
+        - deploy
+        - discover
+
+    - name: endpoint
+      description: Network address where a service can be accessed
+      schemas:
+        - wsdl-endpoint
+      actions:
+        - define
+        - connect
+        - resolve
+
+    - name: types
+      description: XML Schema type definitions used by messages
+      schemas:
+        - wsdl-types
+      actions:
+        - define
+        - reference
+        - validate
+
+  actions:
+    - name: define
+      description: Define a new WSDL component
+      pattern: write
+
+    - name: validate
+      description: Validate a WSDL document against the specification
+      pattern: read
+
+    - name: parse
+      description: Parse and process a WSDL document
+      pattern: read
+
+    - name: invoke
+      description: Invoke a web service operation
+      pattern: write
+
+    - name: bind
+      description: Apply a protocol binding to an interface
+      pattern: write
+
+    - name: deploy
+      description: Deploy a web service to an endpoint
+      pattern: write
+
+    - name: discover
+      description: Discover available web services
+      pattern: read
+
+    - name: generate
+      description: Generate code from a WSDL document
+      pattern: read
+
+  schemas:
+    core:
+      - name: wsdl-description
+        description: Root WSDL 2.0 document containing all service descriptions
+        key_properties:
+          - targetNamespace
+          - types
+          - interface
+          - binding
+          - service
+
+      - name: wsdl-interface
+        description: Abstract interface defining operations and faults
+        key_properties:
+          - name
+          - extends
+          - styleDefault
+          - operation
+          - fault
+
+      - name: wsdl-operation
+        description: Abstract operation within a service interface
+        key_properties:
+          - name
+          - pattern
+          - style
+          - wsdlx:safe
+          - input
+          - output
+          - infault
+          - outfault
+
+      - name: wsdl-binding
+        description: Concrete protocol binding for a service interface
+        key_properties:
+          - name
+          - interface
+          - type
+          - operation
+          - fault
+
+      - name: wsdl-service
+        description: Collection of endpoints implementing an interface
+        key_properties:
+          - name
+          - interface
+          - endpoint
+
+      - name: wsdl-endpoint
+        description: Network address for accessing a service
+        key_properties:
+          - name
+          - binding
+          - address
+
+      - name: wsdl-types
+        description: XML Schema type definitions for messages
+        key_properties:
+          - documentation
+          - any
+
+      - name: wsdl-interface-fault
+        description: Fault definition for interface operations
+        key_properties:
+          - name
+          - element
+
+  parameters:
+    identifiers:
+      - name: targetNamespace
+        description: URI identifying the WSDL target namespace
+        type: uri
+
+      - name: name
+        description: Local name of a WSDL component
+        type: string
+
+    configuration:
+      - name: messageExchangePattern
+        description: URI identifying the message exchange pattern
+        type: uri
+
+      - name: bindingType
+        description: URI identifying the type of binding (SOAP, HTTP)
+        type: uri
+
+      - name: address
+        description: Network address URI for a service endpoint
+        type: uri
+
+  enums:
+    messageExchangePatterns:
+      - name: In-Only
+        value: "http://www.w3.org/ns/wsdl/in-only"
+        description: One-way message from client to service, no response
+
+      - name: Robust In-Only
+        value: "http://www.w3.org/ns/wsdl/robust-in-only"
+        description: One-way with potential fault response
+
+      - name: In-Out
+        value: "http://www.w3.org/ns/wsdl/in-out"
+        description: Request-response pattern
+
+    bindingTypes:
+      - name: SOAP
+        value: "http://www.w3.org/ns/wsdl/soap"
+        description: SOAP 1.2 protocol binding
+
+      - name: HTTP
+        value: "http://www.w3.org/ns/wsdl/http"
+        description: HTTP/1.1 protocol binding
+
+    operationStyles:
+      - name: RPC
+        value: "http://www.w3.org/ns/wsdl/style/rpc"
+        description: Remote procedure call style
+
+      - name: IRI
+        value: "http://www.w3.org/ns/wsdl/style/iri"
+        description: IRI-based resource identification style
+
+      - name: Multipart
+        value: "http://www.w3.org/ns/wsdl/style/multipart"
+        description: Multipart message encoding style
+
+  authentication: []
+
+capability:
+  workflows: []
+  personas: []
+  domains:
+    - name: Service Description
+      description: Defining and documenting web service interfaces and capabilities
+
+    - name: Protocol Binding
+      description: Mapping abstract service interfaces to concrete communication protocols
+
+    - name: Type Definition
+      description: Defining XML Schema types for service messages
+
+    - name: Service Deployment
+      description: Deploying and discovering web services at network endpoints
+
+  namespaces:
+    - name: wsdl
+      uri: "http://www.w3.org/ns/wsdl#"
+      description: Core WSDL 2.0 namespace
+
+    - name: wsdlx
+      uri: "http://www.w3.org/ns/wsdl-extensions#"
+      description: WSDL 2.0 extensions namespace
+
+    - name: wsoap
+      uri: "http://www.w3.org/ns/wsdl/soap#"
+      description: WSDL SOAP binding namespace
+
+    - name: whttp
+      uri: "http://www.w3.org/ns/wsdl/http#"
+      description: WSDL HTTP binding namespace
+
+    - name: wrpc
+      uri: "http://www.w3.org/ns/wsdl/rpc"
+      description: WSDL RPC style namespace
+
+  binds: []
+
+crossReference:
+  - resource: description
+    operations:
+      - parse
+      - validate
+    workflows: []
+    personas:
+      - Service Developer
+      - API Architect
+
+  - resource: interface
+    operations:
+      - define
+      - extend
+    workflows: []
+    personas:
+      - Service Developer
+      - API Architect
+
+  - resource: operation
+    operations:
+      - invoke
+      - define
+    workflows: []
+    personas:
+      - Service Developer
+      - Integration Developer
+
+  - resource: binding
+    operations:
+      - define
+      - configure
+    workflows: []
+    personas:
+      - Service Developer
+      - Platform Engineer
+
+  - resource: service
+    operations:
+      - deploy
+      - discover
+    workflows: []
+    personas:
+      - Service Developer
+      - Platform Engineer
+      - Integration Developer
+
+  - resource: endpoint
+    operations:
+      - define
+      - connect
+    workflows: []
+    personas:
+      - Platform Engineer
+      - Integration Developer

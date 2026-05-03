@@ -1,0 +1,52 @@
+{
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wsdl/refs/heads/main/json-structure/wsdl-types.json",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "WSDL Types",
+  "description": "Schema describing the types element of a WSDL 2.0 document. The types element encloses data type definitions (typically XML Schema) used by the web service messages.",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "targetNamespace": {
+            "type": "uri",
+            "description": "The target namespace of the embedded schema definition."
+          },
+          "elementFormDefault": {
+            "type": "string",
+            "enum": [
+              "qualified",
+              "unqualified"
+            ],
+            "description": "Whether locally declared elements must be namespace-qualified."
+          }
+        },
+        "description": "An inline XML Schema or other type system definition."
+      },
+      "description": "A list of type system definitions embedded in or imported by the WSDL document."
+    },
+    "import": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "namespace"
+        ],
+        "properties": {
+          "namespace": {
+            "type": "uri",
+            "description": "The namespace URI of the imported schema."
+          },
+          "schemaLocation": {
+            "type": "uri",
+            "description": "The location of the imported schema document."
+          }
+        }
+      },
+      "description": "A list of imported type definitions from external schemas."
+    }
+  },
+  "additionalProperties": false
+}
