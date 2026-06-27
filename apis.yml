@@ -54,31 +54,31 @@ common:
     title: W3C Web Services Discussion
     url: https://lists.w3.org/Archives/Public/public-ws-desc/
     description: Public mailing list archive for the W3C Web Services Description Working Group.
-  - type: json-schema
+  - type: JSONSchema
     title: WSDL Description
     url: json-schema/wsdl-description.json
-  - type: json-schema
+  - type: JSONSchema
     title: WSDL Types
     url: json-schema/wsdl-types.json
-  - type: json-schema
+  - type: JSONSchema
     title: WSDL Interface
     url: json-schema/wsdl-interface.json
-  - type: json-schema
+  - type: JSONSchema
     title: WSDL Operation
     url: json-schema/wsdl-operation.json
-  - type: json-schema
+  - type: JSONSchema
     title: WSDL Interface Fault
     url: json-schema/wsdl-interface-fault.json
-  - type: json-schema
+  - type: JSONSchema
     title: WSDL Binding
     url: json-schema/wsdl-binding.json
-  - type: json-schema
+  - type: JSONSchema
     title: WSDL Service
     url: json-schema/wsdl-service.json
-  - type: json-schema
+  - type: JSONSchema
     title: WSDL Endpoint
     url: json-schema/wsdl-endpoint.json
-  - type: json-ld-context
+  - type: JSONLDContext
     title: WSDL JSON-LD Context
     url: json-ld/wsdl-context.jsonld
   - type: JSONStructure
