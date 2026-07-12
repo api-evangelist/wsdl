@@ -22,6 +22,8 @@ modified: '2026-05-03'
 specificationVersion: '0.19'
 apis: []
 common:
+  - type: DomainSecurity
+    url: security/wsdl-domain-security.yml
   - type: Specification
     title: WSDL 2.0 Part 1 Core Language
     url: https://www.w3.org/TR/wsdl20/
